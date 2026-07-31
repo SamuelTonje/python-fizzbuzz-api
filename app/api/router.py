@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, Response, status
 from sqlalchemy.orm import Session
 
 from app.api.dependencies import get_statistics_service
@@ -38,6 +38,11 @@ def get_fizzbuzz_service(
 @router.get(
     "/fizzbuzz/statistics",
     response_model=StatisticsResponse,
+    responses={
+        204: {
+            "description": "No statistics available"
+        }
+    },
 )
 def get_statistics(
     service: StatisticsService = Depends(get_statistics_service),
@@ -45,7 +50,9 @@ def get_statistics(
     statistics = service.most_used()
 
     if statistics is None:
-        return None
+        return Response(
+            status_code=status.HTTP_204_NO_CONTENT
+        )
 
     return StatisticsResponse(
         int1=statistics.int1,

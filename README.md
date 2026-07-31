@@ -82,7 +82,7 @@ Response:
 Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/SamuelTonje/python-fizzbuzz-api
 
 cd python-fizzbuzz-api
 ```
@@ -90,24 +90,12 @@ cd python-fizzbuzz-api
 Start the application:
 
 ```bash
-docker compose up --build
+make run-app
 ```
 
 Swagger documentation:
 
 [http://localhost:8000/docs](http://localhost:8000/docs)
-
----
-
-## Database
-
-Database migrations are handled with Alembic.
-
-Run migrations:
-
-```bash
-docker compose exec python alembic upgrade head
-```
 
 ---
 
@@ -163,6 +151,26 @@ Response:
   "status": "ok"
 }
 ```
+
+---
+## Available commands
+
+Main commands:
+
+```bash
+make run-app      # Build containers, start services, run migrations, lint and tests
+make up           # Start containers
+make down         # Stop containers
+make build        # Build Docker images
+make install      # Install Python dependencies
+make test         # Run Pytest test suite
+make ruff         # Run Ruff code quality checks
+make migration m="name" # Create a new Alembic migration
+make migrate      # Apply database migrations
+make rollback     # Roll back the last migration
+make bash         # Open a shell in the Python container
+make logs         # Show application logs
+make clean        # Remove project Docker resources
 
 # Possible Improvements
 
