@@ -4,11 +4,13 @@ from fastapi import Depends, FastAPI
 
 from app.core.settings import get_settings
 from app.db.database import get_db
+from app.api.router import router
 
 settings = get_settings()
 
 app = FastAPI(title=settings.app_name, version=settings.app_version,)
 
+app.include_router(router)
 
 @app.get("/health")
 def health(db: Session = Depends(get_db)):
