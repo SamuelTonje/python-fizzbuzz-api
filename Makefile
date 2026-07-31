@@ -6,3 +6,12 @@ clean: ## Destroy all Docker containers, images, volumes and networks
 	@docker system prune -a --volumes -f
 	@docker network prune -f
 	@echo "Docker complètement nettoyé !"
+
+migration:
+	docker compose exec python alembic revision --autogenerate -m "$(m)"
+
+migrate:
+	docker compose exec python alembic upgrade head
+
+rollback:
+	docker compose exec python alembic downgrade -1
