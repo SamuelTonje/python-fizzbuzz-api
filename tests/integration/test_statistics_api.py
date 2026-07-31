@@ -5,6 +5,12 @@ from app.main import app
 client = TestClient(app)
 
 
+def test_get_statistics_returns_204_when_no_statistics():
+    response = client.get("/api/fizzbuzz/statistics")
+
+    assert response.status_code == 204
+    assert response.content == b""
+
 def test_statistics_are_created_after_fizzbuzz_generation():
     response = client.post(
         "/api/fizzbuzz",
