@@ -7,8 +7,7 @@ class Settings(BaseSettings):
     app_name: str = "FizzBuzz API"
     app_version: str = "1.0.0"
     debug: bool = False
-
-    database_url: str
+    database_url: str = "mysql+pymysql://app:app@database:3306/fizzbuzz"
 
     model_config = SettingsConfigDict(
         env_file=".env",
