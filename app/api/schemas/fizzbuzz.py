@@ -1,5 +1,6 @@
+
 from pydantic import BaseModel, Field
-from typing import Union
+
 
 class GenerateFizzBuzzRequest(BaseModel):
     int1: int = Field(gt=0)
@@ -10,4 +11,4 @@ class GenerateFizzBuzzRequest(BaseModel):
     str2: str = Field(min_length=1)
 
 class GenerateFizzBuzzResponse(BaseModel):
-    result: list[Union[int, str]]    
+    result: list[int | str]    

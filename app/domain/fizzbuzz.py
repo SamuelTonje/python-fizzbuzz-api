@@ -1,4 +1,3 @@
-from typing import Union
 
 
 class FizzBuzzGenerator:
@@ -9,8 +8,8 @@ class FizzBuzzGenerator:
         limit: int,
         str1: str,
         str2: str,
-    ) -> list[Union[int, str]]:
-        result: list[Union[int, str]] = []
+    ) -> list[int | str]:
+        result: list[int | str] = []
 
         for number in range(1, limit + 1):
             value = ""

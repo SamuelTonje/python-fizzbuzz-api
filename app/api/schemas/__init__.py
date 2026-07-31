@@ -2,7 +2,6 @@ from .fizzbuzz import (
     GenerateFizzBuzzRequest,
     GenerateFizzBuzzResponse,
 )
-
 from .statistics import StatisticsResponse
 
 __all__ = [

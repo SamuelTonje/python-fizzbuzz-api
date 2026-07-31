@@ -1,14 +1,14 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
+from app.api.dependencies import get_statistics_service
 from app.api.schemas.fizzbuzz import (
     GenerateFizzBuzzRequest,
     GenerateFizzBuzzResponse,
 )
+from app.api.schemas.statistics import StatisticsResponse
 from app.domain.fizzbuzz import FizzBuzzGenerator
 from app.services.fizzbuzz_service import FizzBuzzService
-from app.api.dependencies import get_statistics_service
-from app.api.schemas.statistics import StatisticsResponse
 from app.services.statistics_service import StatisticsService
 
 router = APIRouter(
