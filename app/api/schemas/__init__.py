@@ -3,7 +3,10 @@ from .fizzbuzz import (
     GenerateFizzBuzzResponse,
 )
 
+from .statistics import StatisticsResponse
+
 __all__ = [
     "GenerateFizzBuzzRequest",
     "GenerateFizzBuzzResponse",
+    "StatisticsResponse",
 ]
