@@ -3,7 +3,6 @@ from sqlalchemy.orm import sessionmaker
 
 from app.core.settings import get_settings
 
-
 settings = get_settings()
 
 

@@ -1,10 +1,8 @@
-from app.domain.fizzbuzz import FizzBuzzGenerator
 from app.api.schemas.fizzbuzz import (
     GenerateFizzBuzzRequest,
     GenerateFizzBuzzResponse,
 )
-
-
+from app.domain.fizzbuzz import FizzBuzzGenerator
 from app.services.statistics_service import StatisticsService
 
 

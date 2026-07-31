@@ -1,10 +1,10 @@
+from fastapi import Depends, FastAPI
 from sqlalchemy import text
 from sqlalchemy.orm import Session
-from fastapi import Depends, FastAPI
 
+from app.api.router import router
 from app.core.settings import get_settings
 from app.db.database import get_db
-from app.api.router import router
 
 settings = get_settings()
 
