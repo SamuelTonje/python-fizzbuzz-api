@@ -1,6 +1,10 @@
 from fastapi import FastAPI
 
-app = FastAPI(title="FizzBuzz API", version="1.0.0",)
+from app.core.settings import get_settings
+
+settings = get_settings()
+
+app = FastAPI(title=settings.app_name, version=settings.app_version,)
 
 
 @app.get("/health")
