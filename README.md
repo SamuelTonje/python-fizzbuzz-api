@@ -93,17 +93,9 @@ Start the application:
 docker compose up --build
 ```
 
-The API is available at:
-
-```
-http://localhost:8000
-```
-
 Swagger documentation:
 
-```
-http://localhost:8000/docs
-```
+[http://localhost:8000/docs](http://localhost:8000/docs)
 
 ---
 
@@ -171,90 +163,6 @@ Response:
   "status": "ok"
 }
 ```
-
----
-
-# Architecture
-
-The application follows a simple layered architecture:
-
-```
-app/
-
-├── api/
-│   ├── router.py
-│   └── schemas/
-│
-├── domain/
-│   └── fizzbuzz.py
-│
-├── services/
-│   ├── fizzbuzz_service.py
-│   └── statistics_service.py
-│
-├── repositories/
-│   └── statistics_repository.py
-│
-├── models/
-│   └── statistics.py
-│
-└── db/
-    └── session.py
-```
-
-Main principles:
-
-* Business logic isolated in the domain layer
-* Services handle application use cases
-* Repository layer handles persistence
-* SQLAlchemy models are separated from business logic
-* Input validation handled with Pydantic
-
----
-
-# Tests
-
-Run the test suite:
-
-```bash
-docker compose exec python pytest
-```
-
-The test suite covers:
-
-* FizzBuzz generation
-* Input validation
-* HTTP endpoints
-* Statistics persistence
-
----
-
-# Technical Choices
-
-## Why FastAPI?
-
-FastAPI provides:
-
-* automatic request validation
-* native OpenAPI documentation
-* simple dependency injection
-* high performance REST APIs
-
-## Why SQLAlchemy?
-
-SQLAlchemy provides a clean separation between:
-
-* application logic
-* persistence layer
-* database models
-
-## Statistics handling
-
-Statistics are recorded only after a successful FizzBuzz generation.
-
-Invalid requests are therefore never counted.
-
----
 
 # Possible Improvements
 
